@@ -9,6 +9,12 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="js/mobiscroll.javascript.min.js"></script>
   <title>Navbar</title>
+  <style>
+     .rotate-180 {
+    transform: rotate(180deg);
+  }
+
+  </style>
 </head>
 <body class="bg-[#F8F8FA]">
   <!-- Navbar -->
@@ -155,11 +161,11 @@
   <!-- Container -->
   <div class="flex min-h-screen mt-3">
     <!-- Vertical Navigation -->
-    <aside class="top-0 left-0 h-screen w-16 flex flex-col items-center py-4 ">
+    <aside class="top-0 left-0 h-screen w-16 flex flex-col items-center py-4 desktop:hidden ">
         <!-- Profile Section -->
         <div class="mb-6">
           <div class="w-10 h-10  flex items-center justify-center text-gray-500">
-            <svg width="51" height="40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="51" height="40" fill="none" xmlns="http://www.w3.org/2000/svg" id="toggleSidebar">
                 <rect x="0.5" y="0.5" width="39" height="39" rx="19.5" fill="white"/>
                 <rect x="0.5" y="0.5" width="39" height="39" rx="19.5" stroke="#DFDFF4"/>
                 <g clip-path="url(#clip0_61_3535)">
@@ -178,7 +184,7 @@
                 <rect width="16" height="16" fill="white" transform="translate(12 12)"/>
                 </clipPath>
                 </defs>
-                </svg>                
+            </svg>                
           </div>
         </div>
     
@@ -199,8 +205,6 @@
                 </svg>
                              
           </a>
-    
-       
           <!-- Calendar Icon -->
           <a href="#" class="text-gray-500 hover:text-blue-500 p-2 rounded-lg">
             <svg width="82" height="32" viewBox="0 0 82 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -258,9 +262,167 @@
             
           </a>
         </nav>
-      </aside>
+    </aside>
+        <!-- Sidebar -->
+    <div id="sidebar" class="laptop:sidebar desktop:w flex flex-col justify-between laptop:fixed top-16 right-0 h-screen bg-[#F8F8FA] shadow-lg p-4 overflow-y-auto z-10">
+    <div>
+      <div class="flex items-center justify-center mb-6 ">
+      <button id="closeSidebar" class="flex bg-white border text-gray-500 hover:text-gray-700 w-full py-2 rounded-full">
+      <svg width="24" height="24" class=" mx-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_127_5234)">
+        <path d="M19 12C19 15.866 15.866 19 12 19C8.13401 19 5 15.866 5 12C5 8.13401 8.13401 5 12 5C15.866 5 19 8.13401 19 12Z" stroke="#727278" stroke-width="1.33333"/>
+        <path d="M9.33268 11.9999H9.33935M9.49935 11.9999C9.49935 12.092 9.42473 12.1666 9.33268 12.1666C9.24063 12.1666 9.16602 12.092 9.16602 11.9999C9.16602 11.9079 9.24063 11.8333 9.33268 11.8333C9.42473 11.8333 9.49935 11.9079 9.49935 11.9999Z" stroke="#727278" stroke-width="1.33333" stroke-linecap="round"/>
+        <path d="M12.0007 11.9999H12.0073M12.1673 11.9999C12.1673 12.092 12.0927 12.1666 12.0007 12.1666C11.9086 12.1666 11.834 12.092 11.834 11.9999C11.834 11.9079 11.9086 11.8333 12.0007 11.8333C12.0927 11.8333 12.1673 11.9079 12.1673 11.9999Z" stroke="#727278" stroke-width="1.33333" stroke-linecap="round"/>
+        <path d="M14.6667 11.9999H14.6733M14.8333 11.9999C14.8333 12.092 14.7587 12.1666 14.6667 12.1666C14.5746 12.1666 14.5 12.092 14.5 11.9999C14.5 11.9079 14.5746 11.8333 14.6667 11.8333C14.7587 11.8333 14.8333 11.9079 14.8333 11.9999Z" stroke="#727278" stroke-width="1.33333" stroke-linecap="round"/>
+        </g>
+        <defs>
+        <clipPath id="clip0_127_5234">
+        <rect width="16" height="16" fill="white" transform="translate(4 4)"/>
+        </clipPath>
+        </defs>
+       </svg>
+       <span class="font-bold">פעולות מהירות</span>   
+
+      </button>
+    </div>
+
+    <!-- Sidebar Items -->
+    <ul class="space-y-4">
+      <li class="flex items-center space-x-2 rtl:space-x-reverse">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8.52113 18H15.4753C16.6986 18 17.6898 17.0082 17.6898 15.7855V11.003C17.6898 10.4089 17.4225 9.84649 16.962 9.47092L13.2459 6.44367C12.5194 5.85211 11.477 5.85211 10.7505 6.44367L7.03443 9.47092C6.57389 9.84649 6.30664 10.4089 6.30664 11.003V15.7855C6.30664 17.0082 7.29777 18 8.52113 18Z" stroke="#727278" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M10.2422 14.5559H13.7572" stroke="#727278" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="text-gray-600">בית</span>
+      </li>
+      <li class="flex items-center space-x-2 rtl:space-x-reverse">
+       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14.3338 8.33333C14.3338 9.622 13.2891 10.6667 12.0004 10.6667C10.7118 10.6667 9.66711 9.622 9.66711 8.33333C9.66711 7.04467 10.7118 6 12.0004 6C13.2891 6 14.3338 7.04467 14.3338 8.33333Z" stroke="#727278" stroke-width="1.33333" stroke-linejoin="round"/>
+        <path d="M12.0004 12.6667C10.0148 12.6667 8.45 13.7026 7.62268 15.2414C7.0646 16.2794 8.01877 17.3333 9.19728 17.3333H14.8036C15.9821 17.3333 16.9363 16.2794 16.3782 15.2414C15.5509 13.7026 13.9861 12.6667 12.0004 12.6667Z" stroke="#727278" stroke-width="1.33333" stroke-linejoin="round"/>
+        </svg>
+        <span class="text-gray-600">לקוחות</span>
+      </li>
+      <li class="flex items-center space-x-2 rtl:space-x-reverse">
+      <div class="mr-2.5">
+        <svg width="2" height="32" viewBox="0 0 2 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0.5" width="1" height="32" fill="#DFDFF4"/>
+        </svg>
+        <svg width="2" height="32" viewBox="0 0 2 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0.5" width="1" height="32" fill="#DFDFF4"/>
+        </svg>
+
+      </div>
+      <div class="!mr-8">
+        <p class="text-gray-600 mb-2">מתאמנים</p>
+        <p class="text-gray-600">מתאמנים</p>
+      </div>
+      </li>
+      <li class="flex items-center space-x-2 rtl:space-x-reverse">
+       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M14.5449 5.5V7.64884" stroke="#727278" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M9.32812 5.5V7.64884" stroke="#727278" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M14.9267 6.49219L8.95072 6.49278C7.19535 6.49278 6.09961 7.47029 6.09961 9.26701V14.6759C6.09961 16.501 7.19535 17.5012 8.95072 17.5012L14.9215 17.5006C16.6821 17.5006 17.7726 16.5179 17.7726 14.7206V9.26641C17.7778 7.46969 16.6872 6.49219 14.9267 6.49219Z" stroke="#727278" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M9.03516 11.0938H9.04182" stroke="#727278" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M9.03516 13.5886H9.04182" stroke="#727278" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M11.9336 11.0938H11.9403" stroke="#727278" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M11.9336 13.5886H11.9403" stroke="#727278" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M14.8242 11.0938H14.8309" stroke="#727278" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M14.8242 13.5886H14.8309" stroke="#727278" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="text-gray-600">תכנון</span>
+      </li>
+           <li class="flex items-center space-x-2 rtl:space-x-reverse">
+      <div class="mr-2.5">
+        <svg width="2" height="32" viewBox="0 0 2 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0.5" width="1" height="32" fill="#DFDFF4"/>
+        </svg>
+        <svg width="2" height="32" viewBox="0 0 2 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0.5" width="1" height="32" fill="#DFDFF4"/>
+        </svg>
+
+      </div>
+      <div class="!mr-8">
+        <p class="text-gray-600 mb-2">מתאמנים</p>
+        <p class="text-gray-600">מתאמנים</p>
+      </div>
+      </li>
+      <li class="flex items-center space-x-2 rtl:space-x-reverse">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M15.1453 18.0782H9.52209C7.55668 18.0782 6.33398 16.6913 6.33398 14.7272V9.42969C6.33398 7.46558 7.55668 6.07812 9.52274 6.07812H15.1453C17.1107 6.07812 18.334 7.46558 18.334 9.42969V14.7272C18.334 16.6913 17.1048 18.0782 15.1453 18.0782Z" stroke="#727278" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M15.4367 10.4246L13.4953 12.9472L11.2808 11.2088L9.38086 13.6606" stroke="#727278" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="text-gray-600">משימות</span>
+      </li>
+      <li class="flex items-center space-x-2 rtl:space-x-reverse">
+       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12.0007" cy="12.0007" r="2" stroke="#727278" stroke-width="1.33333"/>
+        <path d="M10.0217 7.33398H8.00065C7.63246 7.33398 7.33398 7.63246 7.33398 8.00065V10.0217C7.33398 10.2196 7.2461 10.4072 7.09411 10.5339L5.94856 11.4885C5.62873 11.755 5.62873 12.2463 5.94856 12.5128L7.09411 13.4674C7.2461 13.5941 7.33398 13.7817 7.33398 13.9796V16.0007C7.33398 16.3688 7.63246 16.6673 8.00065 16.6673H10.0217C10.2196 16.6673 10.4072 16.7552 10.5339 16.9072L11.4885 18.0527C11.755 18.3726 12.2463 18.3726 12.5128 18.0527L13.4674 16.9072C13.5941 16.7552 13.7817 16.6673 13.9796 16.6673H16.0007C16.3688 16.6673 16.6673 16.3688 16.6673 16.0007V13.9796C16.6673 13.7817 16.7552 13.5941 16.9072 13.4674L18.0527 12.5128C18.3726 12.2463 18.3726 11.755 18.0527 11.4885L16.9072 10.5339C16.7552 10.4072 16.6673 10.2196 16.6673 10.0217V8.00065C16.6673 7.63246 16.3688 7.33398 16.0007 7.33398H13.9796C13.7817 7.33398 13.5941 7.2461 13.4674 7.09411L12.5128 5.94856C12.2463 5.62873 11.755 5.62873 11.4885 5.94856L10.5339 7.09411C10.4072 7.2461 10.2196 7.33398 10.0217 7.33398Z" stroke="#727278" stroke-width="1.33333" stroke-linecap="round"/>
+        </svg>
+        <span class="text-gray-600">סטודיו</span>
+      </li>
+  
+    </ul>
+    
+  </div>
+   <div class="mb-16">
+    <!-- Progress Section -->
+    <div class=" bg-[#EAECF3] p-4 rounded-lg">
+    <div class="flex justify-between mb-4">
+    <h3 class="text-sm font-semibold text-gray-700">התחל רגל ימין!</h3>
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.80628 10.2945C9.64356 10.1318 9.64357 9.86801 9.80628 9.70529L12.2557 7.25584C12.5812 6.9304 12.5812 6.40277 12.2557 6.07733C11.9303 5.75189 11.4027 5.75189 11.0772 6.07733L8.62777 8.52678C7.81418 9.34037 7.81418 10.6595 8.62777 11.4731L11.0772 13.9225C11.4027 14.2479 11.9303 14.2479 12.2557 13.9225C12.5812 13.5971 12.5812 13.0694 12.2557 12.744L9.80628 10.2945Z" fill="#727278"/>
+    </svg>
+    </div>
+      <div class="bg-gray-200 rounded-full h-2 mt-2 relative">
+        <div class="bg-blue-500 h-2 rounded-full float-end" style="width: 40%;"></div>
+      </div>
+      <p class="text-gray-500 text-sm mt-2">4/10</p>
+    </div>
+
+    <!-- Bottom Button -->
+    <div class="mt-8 bg-blue-100 p-4 rounded-lg shadow">
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g filter="url(#filter0_d_127_5325)">
+        <rect x="8" y="6" width="24" height="24" rx="8" fill="white"/>
+        <g clip-path="url(#clip0_127_5325)">
+        <path d="M17.4993 20.8334C17.4993 21.1096 17.7232 21.3334 17.9993 21.3334C18.2755 21.3334 18.4993 21.1096 18.4993 20.8334C18.4993 19.2162 18.8566 18.1659 19.5109 17.5116C20.1652 16.8573 21.2155 16.5001 22.8327 16.5001C23.1088 16.5001 23.3327 16.2762 23.3327 16.0001C23.3327 15.7239 23.1088 15.5001 22.8327 15.5001C21.2155 15.5001 20.1652 15.1428 19.5109 14.4885C18.8566 13.8343 18.4993 12.784 18.4993 11.1667C18.4993 10.8906 18.2755 10.6667 17.9993 10.6667C17.7232 10.6667 17.4993 10.8906 17.4993 11.1667C17.4993 12.784 17.1421 13.8343 16.4878 14.4885C15.8335 15.1428 14.7832 15.5001 13.166 15.5001C12.8899 15.5001 12.666 15.7239 12.666 16.0001C12.666 16.2762 12.8899 16.5001 13.166 16.5001C14.7832 16.5001 15.8335 16.8573 16.4878 17.5116C17.1421 18.1659 17.4993 19.2162 17.4993 20.8334Z" fill="url(#paint0_linear_127_5325)"/>
+        <path d="M23.166 24.8334C23.166 25.1096 23.3899 25.3334 23.666 25.3334C23.9422 25.3334 24.166 25.1096 24.166 24.8334C24.166 23.7949 24.396 23.1613 24.7782 22.779C25.1605 22.3967 25.7942 22.1667 26.8327 22.1667C27.1088 22.1667 27.3327 21.9429 27.3327 21.6667C27.3327 21.3906 27.1088 21.1667 26.8327 21.1667C25.7942 21.1667 25.1605 20.9368 24.7782 20.5545C24.396 20.1722 24.166 19.5386 24.166 18.5001C24.166 18.2239 23.9422 18.0001 23.666 18.0001C23.3899 18.0001 23.166 18.2239 23.166 18.5001C23.166 19.5386 22.9361 20.1722 22.5538 20.5545C22.1715 20.9368 21.5379 21.1667 20.4993 21.1667C20.2232 21.1667 19.9993 21.3906 19.9993 21.6667C19.9993 21.9429 20.2232 22.1667 20.4993 22.1667C21.5379 22.1667 22.1715 22.3967 22.5538 22.779C22.9361 23.1613 23.166 23.7949 23.166 24.8334Z" fill="url(#paint1_linear_127_5325)"/>
+        </g>
+        </g>
+        <defs>
+        <filter id="filter0_d_127_5325" x="0.8" y="0.8" width="38.4" height="38.4" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+        <feOffset dy="2"/>
+        <feGaussianBlur stdDeviation="3.6"/>
+        <feColorMatrix type="matrix" values="0 0 0 0 0.025293 0 0 0 0 0.155254 0 0 0 0 1 0 0 0 0.18 0"/>
+        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_127_5325"/>
+        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_127_5325" result="shape"/>
+        </filter>
+        <linearGradient id="paint0_linear_127_5325" x1="19.9993" y1="10.6667" x2="24.6668" y2="26.6836" gradientUnits="userSpaceOnUse">
+        <stop offset="0.5" stop-color="#687CFF"/>
+        <stop offset="0.75" stop-color="#A672FF"/>
+        <stop offset="1" stop-color="#F760FF"/>
+        </linearGradient>
+        <linearGradient id="paint1_linear_127_5325" x1="19.9993" y1="10.6667" x2="24.6668" y2="26.6836" gradientUnits="userSpaceOnUse">
+        <stop offset="0.5" stop-color="#687CFF"/>
+        <stop offset="0.75" stop-color="#A672FF"/>
+        <stop offset="1" stop-color="#F760FF"/>
+        </linearGradient>
+        <clipPath id="clip0_127_5325">
+        <rect width="16" height="16" fill="white" transform="translate(12 10)"/>
+        </clipPath>
+        </defs>
+        </svg>
+
+      <span class="text-sm font-semibold text-gray-800 mb-2">Strain Premium את ימי!</span>
+      <p class="text-gray-500 mb-3">חודש חינם! ללא התחייבות</p>
+      <button class="w-full bg-[#556DFF] text-white text-sm py-2 rounded-full">כל החבילות</button>
+    </div>
+  </div>
+  </div>
     <!-- Main Content -->
-    <main class="w-4/5 p-6 bg-white rounded-t-[2rem]">
+    <main class="desktop:w-4/5 laptop:w-4/5 p-12 bg-white rounded-t-[2rem]">
       <!-- Header Section -->
       <nav class="flex items-center space-x-2 rtl:space-x-reverse text-gray-700 mb-5">
         <!-- Breadcrumb Items -->
@@ -270,7 +432,7 @@
         <span class="text-gray-400">›</span>
         <a href="#" class="font-medium text-black">תוכניות אימון</a>
       </nav>
-      <header class="flex justify-between items-center mb-6">
+      <header class="flex justify-between items-center mb-6" >
         <h1 class="text-2xl font-bold">בנייה תוכנית אימון חדשה</h1>
         <div class="flex items-center">
             <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -292,7 +454,7 @@
     <div class="bg-[#F5F7FF] shadow rounded-lg p-4 relative">
         <!-- Header with Toggle Button -->
         <div class="flex justify-between items-center">
-        <h2 class=" font-medium text-[#556DFF] flex items-center">
+        <h2 class=" font-medium text-[#556DFF] flex items-center"  id="openModalButton">
             <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g filter="url(#filter0_d_1_41867)">
                 <rect x="8" y="6" width="24" height="24" rx="8" fill="white"/>
@@ -406,7 +568,7 @@
         <h1 class="font-medium mt-10 mb-3 text-lg">תוכניות האימון של איתמר</h1>
         <p class="text-gray-500">כאן ניתן לגשת לתוכניות האימון של איתמר ולבצע בהן שינויים</p>
     </div>
-    <div class="container mx-auto mt-10">
+    <div class="mt-10">
         <!-- Tabs Navigation -->
         <div class="border-b border-gray-200">
             <nav class="flex space-x-4" aria-label="Tabs">
@@ -442,27 +604,61 @@
                                 <h3 class="font-bold text-gray-700">אימון פונקציונלי</h3>
                                 <p class="text-sm text-gray-500">מתקדמים</p>
                                 <p class="text-sm text-gray-500">תאריכים: 13 ביוני</p>
+                                <button class="px-3 py-1 text-xs font-medium text-gray-500 bg-gray-100 rounded-lg">האינסטגרם</button>
+                                <button class="px-3 py-1 text-xs font-medium text-gray-500 bg-gray-100 rounded-lg">האינסטגרם</button>
+                                <span class="px-2 py-1 text-xs font-medium text-gray-500 bg-gray-100 rounded-lg">+2</span>
+
                             </div>
                         </div>
                         <div class="flex items-center space-x-2 rtl:space-x-reverse">
-                            <span class="px-2 py-1 text-xs font-medium text-gray-500 bg-gray-100 rounded-full">+2</span>
-                            <button class="px-3 py-1 text-xs font-medium text-white bg-blue-500 rounded">האינסטגרם</button>
+                           
+                                <!-- Up Arrow Icon -->
+                                <button class="text-gray-400 hover:text-gray-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                      <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7" />
+                                    </svg>
+                                  </button>
+                              
+                                  <!-- Down Arrow Icon -->
+                                  <button class="text-gray-400 hover:text-gray-600">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                  </button>
+                            <!-- Dots Icon -->
+                            <button class="text-gray-500 hover:text-gray-700">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v.01M12 12v.01M12 18v.01" />
+                                </svg>
+                              </button>
                         </div>
                     </div>
     
                     <!-- Item 2 -->
-                    <div class="flex items-center justify-between mb-4 border-b border-gray-200 pb-4">
+                    <div class="flex items-center justify-between mb-4  border-gray-200 pb-4">
                         <div class="flex items-center space-x-4 rtl:space-x-reverse">
                             <img src="images/2.jpeg" alt="Training Image" class="w-20 h-20 rounded-lg">
                             <div>
                                 <h3 class="font-bold text-gray-700">אימון פונקציונלי</h3>
                                 <p class="text-sm text-gray-500">מתקדמים</p>
                                 <p class="text-sm text-gray-500">תאריכים: 13 ביוני</p>
+                                <button class="px-3 py-1 text-xs font-medium text-gray-500 bg-gray-100 rounded-lg">האינסטגרם</button>
+                                <button class="px-3 py-1 text-xs font-medium text-gray-500 bg-gray-100 rounded-lg">האינסטגרם</button>
+                                <span class="px-2 py-1 text-xs font-medium text-gray-500 bg-gray-100 rounded-lg">+2</span>
                             </div>
                         </div>
                         <div class="flex items-center space-x-2 rtl:space-x-reverse">
-                            <span class="px-2 py-1 text-xs font-medium text-gray-500 bg-gray-100 rounded-full">+2</span>
-                            <button class="px-3 py-1 text-xs font-medium text-white bg-blue-500 rounded">האינסטגרם</button>
+                       
+                            <div class="flex items-center space-x-4">
+                                
+                            
+                                <!-- Dots Icon -->
+                                <button class="text-gray-500 hover:text-gray-700">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v.01M12 12v.01M12 18v.01" />
+                                    </svg>
+                                  </button>
+                              </div>
                         </div>
                     </div>
                 </div>
@@ -479,7 +675,7 @@
 
     </main>
       <!-- Sidebar -->
-      <aside class="w-1/5  p-4">
+      <aside class="desktop:w-1/5 laptop:w-1/5 p-4">
         <div class="flex items-center gap-4 mb-6">
         <div class="relative">
             <!-- Profile Picture -->
@@ -594,8 +790,37 @@
        
         <!-- Calendar -->
         <div id="celendar" class="mt-9"></div>
-        <div>
-            <h3 class="font-bold">מטרות</h3>
+        <div class="mt-4">
+            <div class="flex justify-between">
+                <h3 class="font-bold">מטרות</h3>
+             
+                <div class="relative">
+                        <svg id="menuButton" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 16.6666C16.3682 16.6666 16.6667 16.3681 16.6667 15.9999C16.6667 15.6317 16.3682 15.3333 16 15.3333C15.6318 15.3333 15.3333 15.6317 15.3333 15.9999C15.3333 16.3681 15.6318 16.6666 16 16.6666Z" stroke="#727278" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M21.3333 16.6666C21.7015 16.6666 22 16.3681 22 15.9999C22 15.6317 21.7015 15.3333 21.3333 15.3333C20.9651 15.3333 20.6667 15.6317 20.6667 15.9999C20.6667 16.3681 20.9651 16.6666 21.3333 16.6666Z" stroke="#727278" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10.6667 16.6666C11.0349 16.6666 11.3333 16.3681 11.3333 15.9999C11.3333 15.6317 11.0349 15.3333 10.6667 15.3333C10.2985 15.3333 10 15.6317 10 15.9999C10 16.3681 10.2985 16.6666 10.6667 16.6666Z" stroke="#727278" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                
+                    <!-- Dropdown Menu -->
+                    <div id="menuDropdown" class="hidden absolute left-0 mt-2 w-32 bg-white rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
+                      <div class="py-1">
+                        <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">
+                            <svg class="ml-4" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 4.00015L10.1667 2.83348C10.9951 2.00505 12.3382 2.00505 13.1667 2.83348C13.9951 3.66191 13.9951 5.00505 13.1667 5.83348L12 7.00015M9 4.00015L2.19526 10.8049C2.07024 10.9299 2 11.0995 2 11.2763V14.0001H4.72386C4.90067 14.0001 5.07024 13.9299 5.19526 13.8049L12 7.00015M9 4.00015L12 7.00015" stroke="#727278" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>                                
+                          עריכה
+                        </a>
+                        <hr>
+                        <a href="#" class="flex items-center px-4 py-2 text-sm text-red-600 hover:bg-red-100">
+                            <svg class="ml-4" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.87554 12.133L4.54073 12.0887L3.87554 12.133ZM12.1245 12.133L12.7897 12.1774L12.1245 12.133ZM2 3.33333C1.63181 3.33333 1.33333 3.63181 1.33333 4C1.33333 4.36819 1.63181 4.66667 2 4.66667V3.33333ZM14 4.66667C14.3682 4.66667 14.6667 4.36819 14.6667 4C14.6667 3.63181 14.3682 3.33333 14 3.33333V4.66667ZM9.93704 4.16617C10.0288 4.52274 10.3923 4.7374 10.7488 4.64562C11.1054 4.55385 11.3201 4.1904 11.2283 3.83383L9.93704 4.16617ZM2.66814 4.04435L3.21035 12.1774L4.54073 12.0887L3.99852 3.95565L2.66814 4.04435ZM5.87111 14.6667H10.1289V13.3333H5.87111V14.6667ZM12.7897 12.1774L13.3319 4.04435L12.0015 3.95565L11.4593 12.0887L12.7897 12.1774ZM12.6667 3.33333H3.33333V4.66667H12.6667V3.33333ZM2 4.66667H3.33333V3.33333H2V4.66667ZM12.6667 4.66667H14V3.33333H12.6667V4.66667ZM10.1289 14.6667C11.5328 14.6667 12.6963 13.5782 12.7897 12.1774L11.4593 12.0887C11.4126 12.7891 10.8308 13.3333 10.1289 13.3333V14.6667ZM3.21035 12.1774C3.30373 13.5782 4.4672 14.6667 5.87111 14.6667V13.3333C5.16915 13.3333 4.58742 12.7891 4.54073 12.0887L3.21035 12.1774ZM8.00001 2.66667C8.93102 2.66667 9.71499 3.30342 9.93704 4.16617L11.2283 3.83383C10.8583 2.39628 9.55413 1.33333 8.00001 1.33333V2.66667ZM6.06298 4.16617C6.28504 3.30342 7.06901 2.66667 8.00001 2.66667V1.33333C6.4459 1.33333 5.14173 2.39628 4.77173 3.83383L6.06298 4.16617Z" fill="#ED2D30"/>
+                                </svg>                                
+                          מחיקה
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+            </div>
             <p class="text-[#727278]">	
                 1.	איזון בין מרכיבי כושר שונים
                 התוכנית משלבת אימוני כוח, סיבולת לב-ריאה וגמישות. איזון זה מבטיח שיפור כוללני במרכיבי הכושר ומניעת עומסים על קבוצות שרירים ספציפיות.
@@ -604,74 +829,270 @@
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M9.80628 10.7945C9.64356 10.6318 9.64357 10.368 9.80628 10.2053L12.2557 7.75584C12.5812 7.4304 12.5812 6.90277 12.2557 6.57733C11.9303 6.25189 11.4027 6.25189 11.0772 6.57733L8.62777 9.02678C7.81418 9.84037 7.81418 11.1595 8.62777 11.9731L11.0772 14.4225C11.4027 14.7479 11.9303 14.7479 12.2557 14.4225C12.5812 14.0971 12.5812 13.5694 12.2557 13.244L9.80628 10.7945Z" fill="#556DFF"/>
                 </svg>
                 
-                </span></a>
+                </span>
+            </a>
         </div>
       </aside>
-  
+
+
+       <!-- Modal -->
+       <div id="modal" class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 hidden z-10">
+        <div class="bg-white w-[70%] rounded-lg shadow-lg">
+          <div class="p-4 border-b flex justify-between">
+            <h2 class="text-lg font-semibold">תבניות אימון</h2>
+                <button id="closeModalButton" class="px-4 py-2 hover:bg-gray-400">
+                  x
+                </button>
+          </div>
+          <div class=" ">
+            <div class="grid grid-flow-row-dense grid-cols-3 grid-rows-1  h-[600px]">
+               
+                <div class="border-l flex flex-col justify-between">
+                     
+                    <div class="py-1">
+                        <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-900 font-medium hover:bg-gray-100 focus:text-gray-900"  id="allTemplates">
+                            <svg class="ml-3" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.599609" width="24" height="24" rx="6" fill="#556DFF"/>
+                                <path d="M15.7157 16.4738C15.5503 16.4738 15.3803 16.4611 15.2063 16.4358L12.2383 15.9884C10.5016 15.7271 9.51696 14.3338 9.78896 12.5231L10.429 8.24313C10.7003 6.43197 12.0454 5.38999 13.7852 5.64307L13.786 5.64347L13.7868 5.64387L16.7537 6.09047C18.4903 6.35247 19.4743 7.74513 19.2023 9.5558L18.563 13.8358C18.3177 15.4644 17.201 16.4738 15.7157 16.4738Z" fill="white"/>
+                                <path d="M12.0883 16.9761L13.8146 17.2356C13.9535 17.2565 13.9699 17.4502 13.8364 17.4941L11.6127 18.2251C11.2634 18.3404 10.9214 18.3958 10.5934 18.3958C9.35807 18.3958 8.3234 17.6078 7.86873 16.2338L6.51873 12.1264C6.23207 11.2658 6.26607 10.4078 6.61673 9.71179C6.95207 9.04446 7.55073 8.55379 8.3474 8.29246L9.30493 7.97786C9.37833 7.95375 9.45107 8.01703 9.43962 8.09343L8.79962 12.3728C8.44495 14.7374 9.79695 16.6301 12.0883 16.9761Z" fill="white"/>
+                            </svg>
+                                כל התבניות
+                        </a>
+                        <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" id="myTemplates">
+                            <svg class="ml-3" width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.599609" width="24" height="24" rx="6" fill="#556DFF"/>
+                                <g clip-path="url(#clip0_1_35506)">
+                                <path d="M10.2669 6.16699C8.97826 6.16699 7.93359 7.21166 7.93359 8.50033V16.664C7.93359 17.6089 8.99809 18.1618 9.77113 17.6185L11.9294 16.1015C12.3319 15.8186 12.8686 15.8186 13.2711 16.1015L15.4294 17.6185C16.2024 18.1618 17.2669 17.6089 17.2669 16.664V8.50033C17.2669 7.21166 16.2223 6.16699 14.9336 6.16699H10.2669Z" fill="white"/>
+                                </g>
+                                <defs>
+                                <clipPath id="clip0_1_35506">
+                                <rect width="14" height="14" fill="white" transform="translate(5.59961 5)"/>
+                                </clipPath>
+                                </defs>
+                            </svg>
+                                                             
+                                התבניות שלי   
+                         </a>
+                        
+                          <div class="max-w-sm mx-auto mt-8">
+                            <!-- Collapsible Section -->
+                            <details class="mb-4">
+                                <summary class="flex justify-between items-center px-4 pt-4 cursor-pointer text-gray-800 border-t rounded">
+                                    <span class="font-semibold">קנה יותר</span>
+                                    <!-- Arrow Icon using SVG and Tailwind CSS for rotation -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="transform-origin: center;">
+                                      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </summary>
+                              <div class="px-4 pt-4 pb-2 bg-white rounded">
+                                <label class="flex items-center space-x-2">
+                                  <input type="radio" name="options" class="form-radio h-5 w-5 text-blue-600 ml-3" checked>
+                                  <span class="text-sm text-gray-700">כל המוצרים</span>
+                                </label>
+                                <label class="flex items-center space-x-2 mt-2">
+                                  <input type="radio" name="options" class="form-radio h-5 w-5 text-blue-600 ml-3">
+                                  <span class="text-sm text-gray-700">ברמה</span>
+                                </label>
+                                <label class="flex items-center space-x-2 mt-2">
+                                  <input type="radio" name="options" class="form-radio h-5 w-5 text-blue-600 ml-3">
+                                  <span class="text-sm text-gray-700">ניתן</span>
+                                </label>
+                              </div>
+                            </details>
+                          
+                            <!-- Another Collapsible Section -->
+                            <details class="mb-4">
+                                <summary class="flex justify-between items-center px-4 pt-4 cursor-pointer text-gray-800 border-t">
+                                    <span class="font-semibold">קנה יותר</span>
+                                    <!-- Arrow Icon using SVG and Tailwind CSS for rotation -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="transform-origin: center;">
+                                      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </summary>
+                              <div class="p-4 bg-white rounded">
+                                <p class="text-sm text-gray-700">More content here...</p>
+                              </div>
+                            </details>
+                            <details class="mb-4">
+                                <summary class="flex justify-between items-center px-4 pt-4 cursor-pointer text-gray-800 border-t rounded">
+                                    <span class="font-semibold">קנה יותר</span>
+                                    <!-- Arrow Icon using SVG and Tailwind CSS for rotation -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="transform-origin: center;">
+                                      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </summary>
+                              <div class="px-4 pt-4 pb-2 bg-white rounded">
+                                <label class="flex items-center space-x-2">
+                                  <input type="radio" name="options" class="form-radio h-5 w-5 text-blue-600 ml-3" checked>
+                                  <span class="text-sm text-gray-700">כל המוצרים</span>
+                                </label>
+                                <label class="flex items-center space-x-2 mt-2">
+                                  <input type="radio" name="options" class="form-radio h-5 w-5 text-blue-600 ml-3">
+                                  <span class="text-sm text-gray-700">ברמה</span>
+                                </label>
+                                <label class="flex items-center space-x-2 mt-2">
+                                  <input type="radio" name="options" class="form-radio h-5 w-5 text-blue-600 ml-3">
+                                  <span class="text-sm text-gray-700">ניתן</span>
+                                </label>
+                              </div>
+                            </details>
+                          
+                            <!-- Another Collapsible Section -->
+                            <details class="mb-4">
+                                <summary class="flex justify-between items-center px-4 pt-4 cursor-pointer text-gray-800 border-t">
+                                    <span class="font-semibold">קנה יותר</span>
+                                    <!-- Arrow Icon using SVG and Tailwind CSS for rotation -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="transform-origin: center;">
+                                      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </summary>
+                              <div class="p-4 bg-white rounded">
+                                <div class="flex flex-col items-center justify-center p-8">
+                                    <div class="w-full max-w-lg px-2">
+                                      <input type="range" min="0" max="100" value="20" class="slider w-full" id="myRange">
+                                    </div>
+                                    <div class="flex justify-between items-center w-full max-w-lg px-2 mt-2">
+                                      <div class="bg-gray-100 rounded px-4 py-2 text-sm">מינימום</div>
+                                      <div class="bg-gray-100 rounded px-4 py-2 text-sm" id="demo">20</div>
+                                    </div>
+                                  </div>
+                              </div>
+                            </details>
+                         
+                        </div>
+                            </div>
+                            
+                            <div class="px-5 mt-10 mb-2">
+                                <button class="w-full rounded-full border bg-transparent border-blue-600 text-blue-600 py-2 px-3">נקה בחירה</button>
+                            
+                        </div>
+                          
+                </div>
+                
+                <div class="col-span-2">
+                          <!-- Templates Section -->
+                <div class="lg:col-span-3">
+                    <div id="allTemplatesContent" class="tab-content">
+                    <div class="relative px-4 mt-4">
+                        <input type="search" placeholder="חיפוש הכול..." class="pl-4 pr-10 py-2 w-full rounded-lg border text-gray-700 placeholder-gray-400">
+                        <button type="submit" class="absolute right-5 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </button>
+                     </div>
+                    <div class="grid grid-cols-3 gap-4 p-4 overflow-auto   h-[540px]">
+                        <div class="relative bg-cover bg-center bg-no-repeat rounded-xl shadow-lg" style="background-image: linear-gradient(rgba(0, 0, 0, -0.3), rgba(0, 0, 0, 0.7)), url('images/2.jpeg'); height: 300px;">
+                            <!-- Content at Bottom -->
+                            <div class="absolute bottom-0 left-0 right-0 p-3 rounded-b-lg">
+                             
+                              <h3 class="text-white font-bold mt-2">אימון פונקציונלי</h3>
+                              <p class="text-white text-sm">תאריכים: 13 ביוני</p>
+                              <p class="text-white text-sm">מקסימום: 12</p>
+                              <div class="my-3">
+                                <span class="bg-[#FFFFFF29] text-white text-xs font-medium px-2 py-1 rounded-lg">האמסטרינג</span>
+                                <span class="bg-[#FFFFFF29] text-white text-xs font-medium px-2 py-1 rounded-lg">2+</span>
+                              </div>
+                              
+                            </div>
+                          </div>
+                          <div class="relative bg-cover bg-center bg-no-repeat rounded-xl shadow-lg" style="background-image: linear-gradient(rgba(0, 0, 0, -0.3), rgba(0, 0, 0, 0.7)), url('images/2.jpeg'); height: 300px;">
+                            <!-- Content at Bottom -->
+                            <div class="absolute bottom-0 left-0 right-0 p-3 rounded-b-lg">
+                             
+                              <h3 class="text-white font-bold mt-2">אימון פונקציונלי</h3>
+                              <p class="text-white text-sm">תאריכים: 13 ביוני</p>
+                              <p class="text-white text-sm">מקסימום: 12</p>
+                              <div class="my-3">
+                                <span class="bg-[#FFFFFF29] text-white text-xs font-medium px-2 py-1 rounded-lg">האמסטרינג</span>
+                                <span class="bg-[#FFFFFF29] text-white text-xs font-medium px-2 py-1 rounded-lg">2+</span>
+                              </div>
+                              
+                            </div>
+                          </div>
+                          <div class="relative bg-cover bg-center bg-no-repeat rounded-xl shadow-lg" style="background-image: linear-gradient(rgba(0, 0, 0, -0.3), rgba(0, 0, 0, 0.7)), url('images/2.jpeg'); height: 300px;">
+                            <!-- Content at Bottom -->
+                            <div class="absolute bottom-0 left-0 right-0 p-3 rounded-b-lg">
+                             
+                              <h3 class="text-white font-bold mt-2">אימון פונקציונלי</h3>
+                              <p class="text-white text-sm">תאריכים: 13 ביוני</p>
+                              <p class="text-white text-sm">מקסימום: 12</p>
+                              <div class="my-3">
+                                <span class="bg-[#FFFFFF29] text-white text-xs font-medium px-2 py-1 rounded-lg">האמסטרינג</span>
+                                <span class="bg-[#FFFFFF29] text-white text-xs font-medium px-2 py-1 rounded-lg">2+</span>
+                              </div>
+                              
+                            </div>
+                          </div>
+                          <div class="relative bg-cover bg-center bg-no-repeat rounded-xl shadow-lg" style="background-image: linear-gradient(rgba(0, 0, 0, -0.3), rgba(0, 0, 0, 0.7)), url('images/2.jpeg'); height: 300px;">
+                            <!-- Content at Bottom -->
+                            <div class="absolute bottom-0 left-0 right-0 p-3 rounded-b-lg">
+                             
+                              <h3 class="text-white font-bold mt-2">אימון פונקציונלי</h3>
+                              <p class="text-white text-sm">תאריכים: 13 ביוני</p>
+                              <p class="text-white text-sm">מקסימום: 12</p>
+                              <div class="my-3">
+                                <span class="bg-[#FFFFFF29] text-white text-xs font-medium px-2 py-1 rounded-lg">האמסטרינג</span>
+                                <span class="bg-[#FFFFFF29] text-white text-xs font-medium px-2 py-1 rounded-lg">2+</span>
+                              </div>
+                              
+                            </div>
+                          </div> 
+                          <div class="relative bg-cover bg-center bg-no-repeat rounded-xl shadow-lg" style="background-image: linear-gradient(rgba(0, 0, 0, -0.3), rgba(0, 0, 0, 0.7)), url('images/2.jpeg'); height: 300px;">
+                            <!-- Content at Bottom -->
+                            <div class="absolute bottom-0 left-0 right-0 p-3 rounded-b-lg">
+                             
+                              <h3 class="text-white font-bold mt-2">אימון פונקציונלי</h3>
+                              <p class="text-white text-sm">תאריכים: 13 ביוני</p>
+                              <p class="text-white text-sm">מקסימום: 12</p>
+                              <div class="my-3">
+                                <span class="bg-[#FFFFFF29] text-white text-xs font-medium px-2 py-1 rounded-lg">האמסטרינג</span>
+                                <span class="bg-[#FFFFFF29] text-white text-xs font-medium px-2 py-1 rounded-lg">2+</span>
+                              </div>
+                              
+                            </div>
+                          </div> 
+                          <div class="relative bg-cover bg-center bg-no-repeat rounded-xl shadow-lg" style="background-image: linear-gradient(rgba(0, 0, 0, -0.3), rgba(0, 0, 0, 0.7)), url('images/2.jpeg'); height: 300px;">
+                            <!-- Content at Bottom -->
+                            <div class="absolute bottom-0 left-0 right-0 p-3 rounded-b-lg">
+                             
+                              <h3 class="text-white font-bold mt-2">אימון פונקציונלי</h3>
+                              <p class="text-white text-sm">תאריכים: 13 ביוני</p>
+                              <p class="text-white text-sm">מקסימום: 12</p>
+                              <div class="my-3">
+                                <span class="bg-[#FFFFFF29] text-white text-xs font-medium px-2 py-1 rounded-lg">האמסטרינג</span>
+                                <span class="bg-[#FFFFFF29] text-white text-xs font-medium px-2 py-1 rounded-lg">2+</span>
+                              </div>
+                              
+                            </div>
+                          </div> <div class="relative bg-cover bg-center bg-no-repeat rounded-xl shadow-lg" style="background-image: linear-gradient(rgba(0, 0, 0, -0.3), rgba(0, 0, 0, 0.7)), url('images/2.jpeg'); height: 300px;">
+                            <!-- Content at Bottom -->
+                            <div class="absolute bottom-0 left-0 right-0 p-3 rounded-b-lg">
+                             
+                              <h3 class="text-white font-bold mt-2">אימון פונקציונלי</h3>
+                              <p class="text-white text-sm">תאריכים: 13 ביוני</p>
+                              <p class="text-white text-sm">מקסימום: 12</p>
+                              <div class="my-3">
+                                <span class="bg-[#FFFFFF29] text-white text-xs font-medium px-2 py-1 rounded-lg">האמסטרינג</span>
+                                <span class="bg-[#FFFFFF29] text-white text-xs font-medium px-2 py-1 rounded-lg">2+</span>
+                              </div>
+                              
+                            </div>
+                          </div>
+                       </div>
+                    </div>
+                    <div id="myTemplatesContent" class="tab-content hidden">
+                    <p class="text-gray-600">Here are your templates!</p>
+                    </div>
+                </div>
+                </div>
+              </div>
+          </div>
+          
+        </div>
+      </div>
   </div>
 </body>
 <script src="./script.js"></script>
 
-<script>
- mobiscroll.setOptions({
-theme: 'ios',                               // Specify theme like: theme: 'ios' or omit setting to use default
-themeVariant: 'light',               // More info about themeVariant: https://mobiscroll.com/docs/javascript/datepicker/api#opt-themeVariant
-});
-
-mobiscroll.datepicker('#celendar', {
-display: 'inline',                          // Specify display mode like: display: 'bottom' or omit setting to use default
-marked: [
-    { 
-        date: '2024-12-02T00:00', 
-        color: '#46c4f3'
-    }, { 
-        date: '2024-12-10T00:00', 
-        color: '#7e56bd'
-    }, { 
-        date: '2024-12-13T00:00', 
-        color: '#f13f77'
-    }, { 
-        date: '2024-12-13T00:00', 
-        color: '#89d7c9'
-    }, { 
-        date: '2024-12-21T00:00', 
-        color: '#ffc400'
-    }, { 
-        date: '2024-12-21T00:00', 
-        color: '#8dec7d'
-    },{ 
-        recurring: { 
-            repeat: 'yearly', month: 4, day: 1
-        },
-        color: 'ffc400'
-    }
-],
-rtl: true,
-locale: mobiscroll.localeHe               // Specify language like: locale: mobiscroll.localePl or omit setting to use default
-});
-
-function toggleContent() {
-      const content = document.getElementById('collapsibleContent');
-      const arrowIcon = document.getElementById('arrowIcon');
-      content.classList.toggle('hidden');
-      arrowIcon.classList.toggle('rotate-180');
-}
-   function showTab(tabIndex) {
-      // Hide all tab contents
-      document.querySelectorAll('.tab-content').forEach(content => content.classList.add('hidden'));
-      // Remove active state from all tab buttons
-      document.querySelectorAll('.tab-btn').forEach(button => {
-        button.classList.remove('text-blue-500', 'border-blue-500');
-        button.classList.add('text-gray-500', 'border-transparent');
-      });
-      // Show the selected tab content
-      document.getElementById(`tab-${tabIndex}-content`).classList.remove('hidden');
-      // Set the active state on the selected tab button
-      const activeButton = document.getElementById(`tab-${tabIndex}-btn`);
-      activeButton.classList.add('text-blue-500', 'border-blue-500');
-      activeButton.classList.remove('text-gray-500', 'border-transparent');
-    }
-    // Show the first tab by default
-    showTab(1);
-</script>
 </html>

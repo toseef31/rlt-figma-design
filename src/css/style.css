@@ -1,24 +1,26 @@
 .mbsc-calendar-wrapper {
-    height: auto !important;
-    overflow: hidden;
-    position: relative;
-    z-index: 1;
+  height: auto !important;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 .mbsc-datepicker-inline {
-    height: auto !important;
+  height: auto !important;
 }
-.mbsc-ios.mbsc-datepicker .mbsc-calendar, .mbsc-ios.mbsc-datepicker .mbsc-calendar-cell, .mbsc-ios.mbsc-datepicker .mbsc-calendar-slide {
-    background: transparent !important;
+.mbsc-ios.mbsc-datepicker .mbsc-calendar,
+.mbsc-ios.mbsc-datepicker .mbsc-calendar-cell,
+.mbsc-ios.mbsc-datepicker .mbsc-calendar-slide {
+  background: transparent !important;
 }
 .mbsc-ios.mbsc-datepicker-inline {
-    border: none !important;
+  border: none !important;
 }
 .mbsc-ios.mbsc-calendar-button.mbsc-button {
-    color: #2A2B33;
-    font-weight: 700;
+  color: #2a2b33;
+  font-weight: 700;
 }
 .mbsc-ios.mbsc-datepicker-inline {
-    background: transparent;
-    border-color: #ccc;
-    color: #000;
+  background: transparent;
+  border-color: #ccc;
+  color: #000;
 }

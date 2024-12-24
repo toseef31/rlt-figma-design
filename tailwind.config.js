@@ -5,7 +5,12 @@ module.exports = {
     "./index.html",
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        laptop: '1440px',
+        desktop: '1920px',
+      },
+    },
   },
   plugins: [
     require('tailwindcss-rtl'),  // Adds RTL support
