@@ -1,3 +1,40 @@
+/* Adding Ploni-Regular font */
+@font-face {
+  font-family: "Ploni";
+  src: url("fonts/Ploni/Desktop/Fonts/ploni-regular-aaa.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Adding Ploni-Medium font */
+@font-face {
+  font-family: "Ploni";
+  src: url("fonts/Ploni/Desktop/Fonts/ploni-medium-aaa.otf") format("opentype");
+  font-weight: 500; /* Medium is often considered 500 weight */
+  font-style: normal;
+}
+
+/* Adding Ploni-Demibold font */
+@font-face {
+  font-family: "Ploni";
+  src: url("fonts/Ploni/Desktop/Fonts/ploni-demibold-aaa.otf")
+    format("opentype");
+  font-weight: 600; /* Demibold is often considered 600 weight */
+  font-style: normal;
+}
+
+/* Adding Ploni-Bold font */
+@font-face {
+  font-family: "Ploni";
+  src: url("fonts/Ploni/Desktop/Fonts/ploni-bold-aaa.otf") format("opentype");
+  font-weight: bold; /* 700 weight */
+  font-style: normal;
+}
+
+body {
+  font-family: "Ploni", sans-serif; // Fallback to sans-serif if Ploni isn't available
+}
+
 .mbsc-calendar-wrapper {
   height: auto !important;
   overflow: hidden;
@@ -23,4 +60,13 @@
   background: transparent;
   border-color: #ccc;
   color: #000;
+}
+.mbsc-icon {
+  color: #727278;
+  width: 20px;
+}
+.mbsc-ios.mbsc-calendar-week-day {
+  font-size: 1.2em;
+  height: 1.7em;
+  line-height: 1.7em;
 }

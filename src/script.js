@@ -25,6 +25,19 @@ closeModalButton.addEventListener('click', () => {
   modal.classList.add('hidden');
 });
 
+const openModalButton2 = document.getElementById('openModalButton2');
+const closeModalButton2 = document.getElementById('closeModalButton2');
+const modal2 = document.getElementById('modal2');
+
+openModalButton2.addEventListener('click', () => {
+  modal2.classList.remove('hidden');
+});
+
+closeModalButton2.addEventListener('click', () => {
+  modal2.classList.add('hidden');
+});
+
+
 window.addEventListener('click', (event) => {
   if (event.target === modal) {
     modal.classList.add('hidden');
@@ -120,18 +133,37 @@ mobiscroll.setOptions({
         closeButton.addEventListener('click', () => {
           sidebar.classList.remove('active');
         });
+
         const menuButton = document.getElementById('menuButton');
         const menuDropdown = document.getElementById('menuDropdown');
     
         menuButton.addEventListener('click', () => {
           menuDropdown.classList.toggle('hidden');
         });
+
+        const menuButton1 = document.getElementById('menuButton1');
+        const menuDropdown1 = document.getElementById('menuDropdown1');
     
-        document.addEventListener('click', (event) => {
-          if (!menuButton.contains(event.target) && !menuDropdown.contains(event.target)) {
-            menuDropdown.classList.add('hidden');
-          }
+        menuButton1.addEventListener('click', () => {
+          menuDropdown1.classList.toggle('hidden');
         });
+
+        const menuButton2 = document.getElementById('menuButton2');
+        const menuDropdown2 = document.getElementById('menuDropdown2');
+    
+        menuButton2.addEventListener('click', () => {
+          menuDropdown2.classList.toggle('hidden');
+        });
+    
+
+        const menuButton3 = document.getElementById('menuButton3');
+        const menuDropdown3 = document.getElementById('menuDropdown3');
+    
+        menuButton3.addEventListener('click', () => {
+          menuDropdown3.classList.toggle('hidden');
+        });
+       
+
         document.addEventListener('DOMContentLoaded', function () {
         const details = document.querySelectorAll('details');
     
